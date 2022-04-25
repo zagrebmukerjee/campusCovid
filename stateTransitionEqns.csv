@@ -1,0 +1,7 @@
+﻿sourceCompartment,targetCompartment,equation
+susceptible,exposed,states$susceptible*parameters$beta*states$infected/(states$susceptible + states$infected + states$recovered)
+exposed,infected,states$exposed*parameters$theta
+infected,isolated,states$infected/parameters$testingCadence
+infected,recovered,states$infected*parameters$rho
+isolated,recovered,states$isolated*parameters$rho
+recovered,susceptible,states$recovered*parameters$sigma
