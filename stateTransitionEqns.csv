@@ -1,7 +1,7 @@
 ﻿sourceCompartment,targetCompartment,equation
-susceptible,exposed,"min(states$susceptible*currentParameters$beta*states$infected/(states$susceptible + states$infected + states$recovered) + currentParameters$externalInfections, states$susceptible)"
-exposed,infected,states$exposed*currentParameters$theta
-infected,isolated,states$infected/currentParameters$testingCadence
-infected,recovered,states$infected*currentParameters$rho
-isolated,recovered,states$isolated*currentParameters$rho
-recovered,susceptible,states$recovered*currentParameters$sigma
+susceptible,exposed,"min(states[""susceptible""]*currentParameters$beta*states[""infected""]/(states[""susceptible""] + states[""infected""] + states[""recovered""]) + currentParameters$externalInfections, states[""susceptible""])"
+exposed,infected,"states[""exposed""]*currentParameters$theta"
+infected,isolated,"states[""infected""]/currentParameters$testingCadence"
+infected,recovered,"states[""infected""]*currentParameters$rho"
+isolated,recovered,"states[""isolated""]*currentParameters$rho"
+recovered,susceptible,"states[""recovered""]*currentParameters$sigma"
