@@ -3,6 +3,7 @@
 library(dplyr)
 library(tidyr)
 library(ggplot2)
+library(RColorBrewer)
 
 # Define defaults for each aspect of a scenario
 semesterLength <- 100 #days
@@ -38,7 +39,7 @@ baseScenario$parameters <- list(
   incubationTime = 3,
   recoveryTime = 14,
   immunityTime = 14,
-  externalInfections = 3,
+  externalInfections = 6,
   startingInfections = 10,
   testingCadence = 7, #entire population is tested every n days
   population= 1000
