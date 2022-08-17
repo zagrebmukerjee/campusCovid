@@ -3,6 +3,7 @@
 library(dplyr)
 library(tidyr)
 library(ggplot2)
+library(RColorBrewer)
 
 # Define defaults for each aspect of a scenario
 semesterLength <- 100 #days
