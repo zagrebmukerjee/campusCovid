@@ -36,15 +36,15 @@ baseScenario <- list()
 
 # All parameters are in days/daily
 baseScenario$parameters <- list(
-  r0 = 2.5,
+  r0 = 3.5,
   incubationTime = 3,
   recoveryTime = 14,
   immunityTime = 14,
-  hospitalizationRate = .1, # Cumulatively, X proportion of cases end up hospitalized
+  hospitalizationRate = .3, # Cumulatively, X proportion of cases end up hospitalized
   vaccinationRate = .5, #this proportion are vaccinated
   vaccinationHospEffect = .5, # factor by which vaccines REDUCE rate of hospitalization
   externalInfections = 3,
-  startingInfections = 10,
+  startingInfections = 50,
   testingCadence = 7, #entire population is tested every n days
   population= 1000
 )
