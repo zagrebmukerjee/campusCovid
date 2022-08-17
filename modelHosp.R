@@ -1,6 +1,9 @@
-# Core function that runs the model logic
-# takes a set of parameters. Returns a history
-modelRunner <- function(scenario = baseScenario){
+# THis function is testimony to the insufficient generality of my code
+# reflects the addition of a new compartment, hospitalized
+# a new parameter reflects the cumulative rate of hospitalization in 
+# the target population. 
+
+modelRunnerHosp <- function(scenario = baseScenario){
   
   # different aspects of scenario
   paramsArg <- scenario$parameters
@@ -20,6 +23,11 @@ modelRunner <- function(scenario = baseScenario){
   paramsArg$detectionRate <- 1/(paramsArg$testingCadence *cyclesPerDay)
   paramsArg$beta <- paramsArg$r0/(paramsArg$recoveryTime*cyclesPerDay) # if each infection causes r0 more, it has n days to do so
   paramsArg$externalInfections <- paramsArg$externalInfections/cyclesPerDay
+  paramsArg$sigma <- (1-paramsArg$vaccinationHospEffect) * paramsArg$rho * paramsArg$hospitalizationRate/(1- paramsArg$hospitalizationRate)
+  # why is it like this? we defined the parameter as a cumulative hospitalization rate 
+  # we translate that into a daily rate over the course of an infection. Ex. if rho falls
+  # that means the infection takes longer, which means to get to the same cumulative 
+  # hosp proportion you need a lower daily rate
   
   # what are we tracking
   history <- as.matrix(startingStates) %>% 

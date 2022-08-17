@@ -4,7 +4,8 @@ dimCompare <- function(dim1, dim1Range, dim1ChartingRange = dim1Range,
                        otherChanges = c(),otherChangesVals = c(),
                        chartingCols = c("infected", "recovered"),
                        smoothing = F, facetName1 = "", facetName2 = "",
-                       isoquant = F, isoVar = "infected"){
+                       isoquant = F, isoVar = "infected",
+                       hospitalized = F){
   
   
   # dim1 <- "parameters$testingCadence"
@@ -24,7 +25,7 @@ dimCompare <- function(dim1, dim1Range, dim1ChartingRange = dim1Range,
   # isoVar <- "infected"
   
   baseline <- baseScenario
-  
+  modelFun <- if(hospitalized){modelRunnerHosp}else{modelRunner}
   
   d1 <- strsplit(dim1, "\\$") %>%  unlist()
   d2 <- strsplit(dim2, "\\$") %>%  unlist()
